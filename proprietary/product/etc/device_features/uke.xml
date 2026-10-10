@@ -331,12 +331,7 @@
     <!--whether the device supports bt debug trace-->
     <bool name="btdebug_enabled">true</bool>
     <!-- whether support LHDC codec offload -->
-    <bool name="support_lhdc">true</bool>
-    <bool name="support_lhdc_v4">true</bool>
-    <bool name="support_lhdc_v5">true</bool>
     <bool name="support_lhdc_offload">true</bool>
-    <bool name="persist.vendor.bluetooth.lhdc_v5.supported">true</bool>
-    <bool name="persist.vendor.bluetooth.lhdc_v4.supported">true</bool>
     <!-- whether support fast connect for blackshark -->
     <bool name="support_blackshark_fast_connect">true</bool>
     <bool name="support_blackshark_right_fast_connect">true</bool>

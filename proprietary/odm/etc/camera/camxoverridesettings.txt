@@ -183,8 +183,8 @@ overrideFlashVideoLightCurrent=110
 overrideFlashSnapshotLightCurrent=320
 overrideFlashPreviewLightCurrent=110
 overrideTorchScanCurrent=110
-FlashTorchCurrentSwitch=TRUE
-FlashTorchTemperatureLevels=1@40|2@60
+#FlashTorchCurrentSwitch=TRUE
+#FlashTorchTemperatureLevels=1@40|2@60
 overrideFlashSnapshotLightDuration=5000
 
 enableHwBinary=TRUE
