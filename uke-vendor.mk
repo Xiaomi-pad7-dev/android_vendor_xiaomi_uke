@@ -5,6 +5,12 @@
 PRODUCT_SOONG_NAMESPACES += \
     vendor/xiaomi/uke
 
+# NOTE: stock libdisplaydebug.so is copied below under vendor/lib64 on purpose. The
+# composer service, libsdmcore, libsdmextension, libsdmutils, libsdmdal and libdrmutils
+# all link Xiaomi's sdm::ReportMievent / sdm::HWCFunctionEntry / sdm::HWCFunctionTimer,
+# which only the stock library exports; the Lineage source build of the same name
+# (hardware/qcom-caf/sm8650/display/libdebug, marked installable: false) is a 5-symbol
+# stub. See device/xiaomi/uke/proprietary-files.txt for the full failure signature.
 PRODUCT_COPY_FILES += \
     vendor/xiaomi/uke/proprietary/odm/bin/hw/vendor.xiaomi.hardware.mediaeventgatherservice-service:$(TARGET_COPY_OUT_ODM)/bin/hw/vendor.xiaomi.hardware.mediaeventgatherservice-service \
     vendor/xiaomi/uke/proprietary/odm/bin/hw/vendor.xiaomi.hw.touchfeature-service:$(TARGET_COPY_OUT_ODM)/bin/hw/vendor.xiaomi.hw.touchfeature-service \
@@ -1183,12 +1189,8 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/uke/proprietary/vendor/bin/xtra-daemon:$(TARGET_COPY_OUT_VENDOR)/bin/xtra-daemon \
     vendor/xiaomi/uke/proprietary/vendor/bin/xtwifi-client:$(TARGET_COPY_OUT_VENDOR)/bin/xtwifi-client \
     vendor/xiaomi/uke/proprietary/vendor/etc/Hapticsconfig.xml:$(TARGET_COPY_OUT_VENDOR)/etc/Hapticsconfig.xml \
-    vendor/xiaomi/uke/proprietary/vendor/etc/acdbdata/cliffs_mtp/MTP_cliffs_acdb_cal.acdb:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/cliffs_mtp/MTP_cliffs_acdb_cal.acdb \
-    vendor/xiaomi/uke/proprietary/vendor/etc/acdbdata/cliffs_mtp/MTP_cliffs_workspaceFileXml.qwsp:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/cliffs_mtp/MTP_cliffs_workspaceFileXml.qwsp \
-    vendor/xiaomi/uke/proprietary/vendor/etc/acdbdata/cliffs_mtp_wcd9395_cliffs7/MTP_cliffs7_wcd9395_acdb_cal.acdb:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/cliffs_mtp_wcd9395_cliffs7/MTP_cliffs7_wcd9395_acdb_cal.acdb \
-    vendor/xiaomi/uke/proprietary/vendor/etc/acdbdata/cliffs_mtp_wcd9395_cliffs7/MTP_cliffs7_wcd9395_workspaceFileXml.qwsp:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/cliffs_mtp_wcd9395_cliffs7/MTP_cliffs7_wcd9395_workspaceFileXml.qwsp \
-    vendor/xiaomi/uke/proprietary/vendor/etc/acdbdata/cliffs_mtp_wsa883x_cliffs7/MTP_cliffs7_acdb_cal.acdb:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/cliffs_mtp_wsa883x_cliffs7/MTP_cliffs7_acdb_cal.acdb \
-    vendor/xiaomi/uke/proprietary/vendor/etc/acdbdata/cliffs_mtp_wsa883x_cliffs7/MTP_cliffs7_workspaceFileXml.qwsp:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/cliffs_mtp_wsa883x_cliffs7/MTP_cliffs7_workspaceFileXml.qwsp \
+    vendor/xiaomi/uke/proprietary/vendor/etc/acdbdata/cliffs_mtp/Forte_acdb_cal.acdb:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/cliffs_mtp/Forte_acdb_cal.acdb \
+    vendor/xiaomi/uke/proprietary/vendor/etc/acdbdata/cliffs_mtp/Forte_workspaceFileXml.qwsp:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/cliffs_mtp/Forte_workspaceFileXml.qwsp \
     vendor/xiaomi/uke/proprietary/vendor/etc/acdbdata/ffv_models/ffv__5.0.1_0.1__3.0.0_0.0__eai_2.10_enpu3.pmd:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/ffv_models/ffv__5.0.1_0.1__3.0.0_0.0__eai_2.10_enpu3.pmd \
     vendor/xiaomi/uke/proprietary/vendor/etc/acdbdata/ffv_models/ffv__5.0.1_0.1__eai_2.10_enpu3.pmd:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/ffv_models/ffv__5.0.1_0.1__eai_2.10_enpu3.pmd \
     vendor/xiaomi/uke/proprietary/vendor/etc/acdbdata/ffv_models/ffv__6.2.5_0.1__eai_3.4__enpu_v4.pmd:$(TARGET_COPY_OUT_VENDOR)/etc/acdbdata/ffv_models/ffv__6.2.5_0.1__eai_3.4__enpu_v4.pmd \
@@ -1954,6 +1956,7 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libOISHighFPS.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libOISHighFPS.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libOpenCL.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libOpenCL.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libOpenCL_adreno.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libOpenCL_adreno.so \
+    vendor/xiaomi/uke/proprietary/vendor/lib64/libPeripheralStateUtils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libPeripheralStateUtils.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libPlatformValidatorShared.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libPlatformValidatorShared.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libQ6MSFR_manager_stub.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libQ6MSFR_manager_stub.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libQEGA.qti.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libQEGA.qti.so \
@@ -2165,7 +2168,9 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libizat_client_api.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libizat_client_api.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libizat_core.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libizat_core.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libjnihelper.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libjnihelper.so \
+    vendor/xiaomi/uke/proprietary/vendor/lib64/libjpegdecoder_prebuilt.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libjpegdecoder_prebuilt.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libjpege.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libjpege.so \
+    vendor/xiaomi/uke/proprietary/vendor/lib64/libjpegencoder_prebuilt.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libjpegencoder_prebuilt.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libkaraokepal.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libkaraokepal.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libkcl.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libkcl.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libkernelmanager.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libkernelmanager.so \
@@ -2399,6 +2404,12 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libscveObjectSegmentation.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libscveObjectSegmentation.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libscveObjectTracker.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libscveObjectTracker.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libscveObjectTracker_stub.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libscveObjectTracker_stub.so \
+    vendor/xiaomi/uke/proprietary/vendor/lib64/libdisplaydebug.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libdisplaydebug.so \
+    vendor/xiaomi/uke/proprietary/vendor/lib64/libgpu_tonemapper.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libgpu_tonemapper.so \
+    vendor/xiaomi/uke/proprietary/vendor/lib64/libdrmutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libdrmutils.so \
+    vendor/xiaomi/uke/proprietary/vendor/lib64/libqdutils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libqdutils.so \
+    vendor/xiaomi/uke/proprietary/vendor/lib64/libqservice.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libqservice.so \
+    vendor/xiaomi/uke/proprietary/vendor/lib64/libsdedrm.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libsdedrm.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libsdm-color.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libsdm-color.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libsdm-colormgr-algo.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libsdm-colormgr-algo.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libsdm-disp-vndapis.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libsdm-disp-vndapis.so \
@@ -2459,6 +2470,7 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libtrustedapploader.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libtrustedapploader.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libubifocus.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libubifocus.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libubwcp.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libubwcp.so \
+    vendor/xiaomi/uke/proprietary/vendor/lib64/libultrahdr_prebuilt.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libultrahdr_prebuilt.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libultrasound_notify.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libultrasound_notify.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libutils_vendor.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libutils_vendor.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libvega_common.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libvega_common.so \
