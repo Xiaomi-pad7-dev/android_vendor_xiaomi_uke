@@ -605,3 +605,6 @@ subsystem mem_buf_vm
 
 # Q2SPI UWB device
 /dev/q2spiuwb    0660    uwb    uwb
+
+# Charger
+/sys/class/qcom-battery     night_charging            0660    system  system
