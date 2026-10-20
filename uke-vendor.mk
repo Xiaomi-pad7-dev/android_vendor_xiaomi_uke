@@ -1956,7 +1956,6 @@ PRODUCT_COPY_FILES += \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libOISHighFPS.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libOISHighFPS.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libOpenCL.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libOpenCL.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libOpenCL_adreno.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libOpenCL_adreno.so \
-    vendor/xiaomi/uke/proprietary/vendor/lib64/libPeripheralStateUtils.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libPeripheralStateUtils.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libPlatformValidatorShared.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libPlatformValidatorShared.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libQ6MSFR_manager_stub.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libQ6MSFR_manager_stub.so \
     vendor/xiaomi/uke/proprietary/vendor/lib64/libQEGA.qti.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libQEGA.qti.so \
