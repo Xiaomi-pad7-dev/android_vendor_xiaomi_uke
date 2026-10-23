@@ -584,30 +584,6 @@ prebuilt_etc_xml {
     device_specific: true,
 }
 
-cc_prebuilt_binary {
-    name: "vendor.qti.hardware.display.composer-service",
-    owner: "xiaomi",
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/vendor/bin/hw/vendor.qti.hardware.display.composer-service",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    check_elf_files: false,
-    strip: {
-        none: true,
-    },
-    prefer: true,
-    relative_install_path: "hw",
-    soc_specific: true,
-    required: [
-        "vendor.qti.hardware.display.composer-service.rc",
-        "vendor.qti.hardware.display.composer-service.xml",
-    ],
-}
-
 install_symlink {
     name: "system_ext_priv-app_WfdService_lib_arm64_libwfdnative_so",
     system_ext_specific: true,
