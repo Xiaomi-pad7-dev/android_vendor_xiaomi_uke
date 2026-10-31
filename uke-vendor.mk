@@ -2702,7 +2702,6 @@ PRODUCT_PACKAGES += \
     dpmapi \
     android.hardware.drm-service.xml \
     android.hardware.security.keymint-service-qti.xml \
-    bluetooth_audio_qti.xml \
     bttpi-saidl.xml \
     c2_manifest_vendor.xml \
     c2_manifest_vendor_audio.xml \
