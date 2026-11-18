@@ -37574,36 +37574,6 @@ cc_prebuilt_binary {
     device_specific: true,
 }
 
-cc_prebuilt_binary {
-    name: "toucheventcheck",
-    owner: "xiaomi",
-    target: {
-        android_arm64: {
-            srcs: [
-                "proprietary/odm/bin/toucheventcheck",
-            ],
-            shared_libs: [
-                "libutils",
-                "libhardware",
-                "liblog",
-                "libcutils",
-                "libbinder",
-                "libmisight",
-                "libc++",
-                "libc",
-                "libm",
-                "libdl",
-            ],
-        },
-    },
-    compile_multilib: "64",
-    strip: {
-        none: true,
-    },
-    prefer: true,
-    device_specific: true,
-}
-
 install_symlink {
     name: "system_ext_priv-app_WfdService_lib_arm64_libwfdnative_so",
     system_ext_specific: true,

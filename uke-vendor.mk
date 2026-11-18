@@ -2505,8 +2505,7 @@ PRODUCT_PACKAGES += \
     vendor.xiaomi.hw.touchfeature-service \
     vendor.xiaomi.sensor.citsensorservice.aidl \
     init.mi.serial \
-    midevauthd \
-    toucheventcheck
+    midevauthd
 
 PRODUCT_PACKAGES += \
     system_ext_priv-app_WfdService_lib_arm64_libwfdnative_so \
