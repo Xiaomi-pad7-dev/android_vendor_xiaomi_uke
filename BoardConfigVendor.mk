@@ -7,6 +7,7 @@ AB_OTA_PARTITIONS += \
     aop \
     aop_config \
     bluetooth \
+    countrycode \
     cpucp \
     cpucp_dtb \
     devcfg \
@@ -16,6 +17,7 @@ AB_OTA_PARTITIONS += \
     imagefv \
     keymaster \
     modem \
+    multiimgqti \
     qupfw \
     shrm \
     tz \
